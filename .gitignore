@@ -1,52 +1,26 @@
-# Prerequisites
-*.d
+# Build artifacts
+/bin/
+/obj/
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Temporary files
+*.tmp
+*.user
+*.sln.docstates
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# NuGet Global Packages Directory
+# (adjust if using a different location)
+/packages/
 
-# Precompiled Headers
-*.gch
-*.pch
+# Analyzer and test results
+*.vbproj.user
+*.csProj.user
+TestResults/
+coverage/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Visual Studio Code specific
+/.vscode/
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Secret files
+*.secrets.json
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Any other IDE-specific files
