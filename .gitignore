@@ -24,3 +24,5 @@ coverage/
 *.secrets.json
 
 # Any other IDE-specific files
+
+.fake

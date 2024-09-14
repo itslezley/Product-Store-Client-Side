@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lezlab</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Lezlab.styles.css" asp-append-version="true" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 
+</head>
+<body>
+    <header>
+        <nav class="blue lighten-4">
+            <div class="nav-wrapper">
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons left hide-on-large-only">menu</i></a>
+                <a href="#!" class="brand-logo">Lezlab</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a asp-controller="Home" asp-action="Index"><i class="material-icons left">home</i></a></li>
+                    <li><a asp-controller="Home" asp-action="login"><i class="material-icons left">login</i></a></li>
+                    <li><a asp-controller="Home" asp-action="profile"><i class="material-icons right">person</i></a></li>
+                    <li> <a asp-controller="Home" asp-action="cart"><i class="material-icons right">shopping_cart</i></a></li>
+                    <li><a  asp-controller="Home" asp-action="logout"><i class="material-icons right">logout</i></a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+        <ul id="slide-out" class="sidenav blue lighten-4">
+    <li><div class="user-view">
+      <div class="background">
+        <img class="profile_img" src="~/Image/profile.png" height="90">
+      </div>
+      <a href="#user"><img class="circle" src=""></a>
+                    <a href="#name"><span class="black-text name white-text">@(@ViewData["CustomerName"] ?? "John Doe")</span></a>
+                    <a href="#email"><span class="black-text email white-text">@(@ViewData["Username"] ?? "example@gmail.com")</span></a>
+    </div></li>
+            <li><a asp-controller="Home" asp-action="Index" class="white-text"><i class="material-icons left white-text">home</i>Home</a></li>
+            <li><a asp-controller="Home" asp-action="login" class="white-text"><i class="material-icons left white-text">login</i>Login</a></li>
+            <li><a asp-controller="Home" asp-action="profile" class="white-text"><i class="material-icons left white-text">person</i>Profile</a></li>
+            <li><a asp-controller="Home" asp-action="cart" class="white-text"><i class="material-icons left white-text">shopping_cart</i>My cart</a></li>
+            <li><a asp-controller="Home" asp-action="logout" class="white-text"><i class="material-icons left white-text">logout</i>Logout</a></li>
+  </ul>
+  
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="center-align">
+        <div class="container">
+            &copy; 2024 - Lezlab - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    //var instances = M.Sidenav.init(elems, options);
+  });
+
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        $(document).ready(function () {
+            $('.add').click(function () {
+                toggleButton(this);
+            });
+        });
+
+        function toggleButton(button) {
+            var card = $(button).closest('.card'); // Get the closest card container
+
+            if ($(button).hasClass('add')) {
+                card.find('i').text("clear");
+                $(button).removeClass('add').addClass('Clear');
+
+                card.find('h5').text('Added To Cart');
+                
+            } 
+            
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

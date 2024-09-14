@@ -1,0 +1,49 @@
+﻿@model Lezlab.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>Create Product</h2>
+
+<form asp-action="CreateProduct" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="productName" class="control-label"></label>
+        <input asp-for="productName" class="form-control" />
+        <span asp-validation-for="productName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="productType" class="control-label"></label>
+        <input asp-for="productType" class="form-control" />
+        <span asp-validation-for="productType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="productPrice" class="control-label"></label>
+        <input asp-for="productPrice" class="form-control" />
+        <span asp-validation-for="productPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="description" class="control-label"></label>
+        <textarea asp-for="description" class="form-control"></textarea>
+        <span asp-validation-for="description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image" class="control-label"></label>
+        <input asp-for="Image" class="form-control" type="file" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

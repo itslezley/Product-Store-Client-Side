@@ -1,0 +1,50 @@
+﻿@model Customer
+
+
+<div class="login-container">
+    <div class="row z-depth-4 transparent">
+        <!-- Image Half -->
+        <div class="col s12 m4  left">
+            <img src="~/Image/login.gif" alt="Login side Image" />
+        </div>
+
+        <!-- Login Form Half -->
+        <div class="col s12  m6 right ">
+            <div>
+                <h4>Login</h4>
+                <hr />
+                <div class="form">
+                        <form asp-action="Login">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="email" class="control-label white-text"></label>
+                            <input asp-for="email" class="form-control white-text" placeholder="example@gmail.com" />
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="password" class="control-label white-text"></label>
+                            <input asp-for="password" class="form-control white-text" placeholder="*********" />
+                                <span asp-validation-for="password" class="text-danger"></span>
+                            </div>
+                            <br />
+                        <div class="center-align">
+                                <input type="submit" value="Login" class="btn waves-effect waves-red pulse" />
+                            </div>
+                            <br />
+                            <div class="login-btn">
+                                <a asp-action="Registration" asp-controller="Home">Don't' Have An Account?<span>Register</span></a>
+                            </div>
+                        </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

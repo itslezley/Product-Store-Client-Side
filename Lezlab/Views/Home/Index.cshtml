@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Product>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            title: 'Success!',
+            text: '@TempData["SuccessMessage"]',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    </script>
+}
+<div class="text-center">
+    <section class="welcome">
+
+        <div class="row">
+            <div class="col s12 m5  right">
+                <img src="image/welcome.png" class="welcome_img center" />
+            </div>
+
+            <div class="col s12 m7 left">
+                <h3>Welcome To Our Store</h3>
+                <p>
+                    Discover a curated collection of unique and stylish items designed to elevate your everyday life. From elegant rings and vibrant bouquets to timeless watches and more, we have something to suit every taste and occasion.
+
+                    Explore our online store and find the perfect pieces to express your personal style and add a touch of luxury to your life.
+                </p>
+                <h5 class="center-align white-text ">Happy shopping! LezLabs</h5>
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="products">
+            @if (Model != null && Model.Any())
+            {
+                <div class="row">
+                    @foreach (var product in Model)
+                    {
+                        <div class="col s12 m6 l4">
+                            <div class="card z-depth-4">
+                                <img src="data:image;base64,@(Convert.ToBase64String(product.Image))" alt="Avatar" style="width:100%;height:150px;">
+                                <div class="row">
+                                <div id="" class="col s12 left_container">
+                                        <h4 id="productName"><b>@product.productName</b></h4>
+                                        <h5 id="productPrice">R @product.productPrice</h5>
+                                </div>
+                                <div class="col s12 right_container">
+                                        <button class="btn add transparent" onclick="toggleButton(this)">
+                                        <i class="material-icons">add_shopping_cart</i>
+                                    </button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No products available.</p>
+            }
+        </div>
+    </section>
+
+    <section class="contactus">
+        <div class="row z-depth-3 ">
+                <div class="col s12 l4 left ">
+                    <img src="~/Image/contact.gif" alt="Image"/>
+                </div>
+            <div class="col s11 l6 right">
+                <div class="form">
+                    <h1 class="page-header">Contact Us</h1>
+                    <form  method="get">
+                    <div class="form-group">
+                        <label class="white-text left">Name</label>
+                        <input  class="form-control white-text" placeholder="John Doe" />
+                        <span  class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="white-text left">Email</label>
+                        <input  class="form-control white-text" placeholder="example@gmail.com" />
+                        <span  class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="white-text left">Message</label>
+                        <textarea class="form-control white-text" placeholder="Enter Message here"></textarea>
+                        <span  class="text-danger"></span>
+
+                    </div>
+                        <div class="center-align">
+                            <button type="submit" id="registerBtn" class="btn waves-effect waves-red">Contact</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+    </section>
+
+</div>

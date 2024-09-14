@@ -1,0 +1,141 @@
+:root {
+  --text: #FFFFFF;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: #90caf9;
+  color: var(--text);
+}
+
+
+
+.welcome_img{
+  width: 100%;
+  margin-left: 10px;
+}
+.welcome .row{
+  padding:15% 0;
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: #3e8e41;
+    border-radius:20px;
+    
+}
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.left_container h4 {
+    font-size: 20px;
+}
+
+    .left_container h5{
+        font-size:17px;
+    }
+
+    .left_container h5, .left_container h4{
+        color: black;
+    }
+
+
+.card .row {
+    height:170px;
+    border-radius:20px;
+}
+.left_container{
+    text-align:center;
+}
+
+.right_container {
+    height:82px;
+   
+}
+.right_container button {
+    height: 100%;
+    width: 100%;
+
+}
+.add, .Clear {
+    transition: all 0.3s ease;
+}
+
+    .add:not(:hover) {
+        background-color: #90caf9;
+    }
+
+    .add.Clear {
+        color: black;
+        margin-bottom:10px;
+    }
+    .add i{
+        color:green;
+    }
+
+    .Clear i{
+        color:red;
+    }
+    
+
+    .Clear:not(:hover) {
+        background-color: #000000;
+    }
+
+.left_container.right {
+    
+    transition: background-color 0.3s ease;
+}
+
+.login-container{
+    margin-top:30px;
+}
+.form input{
+    color:white;
+}
+.login-btn{
+    height:50px;
+    text-align:center;
+}
+
+.contactus right{
+    height:300px;
+}
+.contactus img{
+    height:400px;
+    width:350px;
+}
+.contactus form{
+    text-align:center;
+    height:400px;
+
+}
+
+.contactus textarea {
+    height: 100px;
+    border: none;
+    outline: none;
+}
+
+.contactus textarea:focus{
+    border:none;
+}

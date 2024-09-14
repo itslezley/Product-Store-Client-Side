@@ -1,0 +1,62 @@
+﻿@model Customer
+
+<div class="login-container">
+    <div class="row z-depth-4 transparent">
+        <!-- Image Half -->
+        <div class="col s12 m4  left">
+            <img src="~/Image/login.gif" alt="Login side Image" />
+        </div>
+
+        <!-- Login Form Half -->
+        <div class="col s12  m6 right">
+            <div class="form">
+                <h1 class="page-header">Registration</h1>
+
+                <form asp-controller="Home" asp-action="Registration" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="email" class="white-text"></label>
+                        <input asp-for="email" class="form-control white-text" placeholder="example@gmail.com" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="name" class="white-text"></label>
+                        <input asp-for="name" class="form-control white-text" placeholder="John" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="surname" class="white-text"></label>
+                        <input asp-for="surname" class="form-control white-text" placeholder="Doe" />
+                        <span asp-validation-for="surname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="password" class="white-text"></label>
+                        <input asp-for="password" class="form-control white-text" type="password" placeholder="********" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="center-align">
+                        <button type="submit" id="registerBtn" class="btn waves-effect waves-red">Register</button>
+                    </div>
+                    <br />
+                    <div class="login-btn">
+                        <a asp-action="Login" asp-controller="Home" class="white-text">Already Have An Account?<span>Login</span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
